@@ -12,21 +12,16 @@ public partial class DisplayingControls_PaginationControl : System.Web.UI.UserCo
 
     }
 
-    // Display The paginationControl
-    public void Display(int currentPage, int howManyPages, string firstPageUrl,
+  public void Display(int currentPage, int howManyPages, string firstPageUrl,
     string pageUrlFormat, bool showPages)
     {
-        // display  controls
         if (howManyPages > 1)
         {
-            // make the control visible
             this.Visible = true;
 
-            // current page
             currentPageLabel.Text = currentPage.ToString();
             howManyPagesLabel.Text = howManyPages.ToString();
 
-            // create the Previous link
             if (currentPage == 1)
             {
                 previousLink.Enabled = false;
@@ -38,7 +33,6 @@ public partial class DisplayingControls_PaginationControl : System.Web.UI.UserCo
                   firstPageUrl : String.Format(pageUrlFormat, currentPage - 1);
             }
 
-            // create the Next link
             if (currentPage == howManyPages)
             {
                 nextLink.Enabled = false;
@@ -48,21 +42,16 @@ public partial class DisplayingControls_PaginationControl : System.Web.UI.UserCo
                 nextLink.NavigateUrl = String.Format(pageUrlFormat, currentPage + 1);
             }
 
-            // create the page links
-            if (showPages)
+           if (showPages)
             {
-                // the list of pages and their URLs as an array
                 PageUrl[] pages = new PageUrl[howManyPages];
-                // generate (page, url) elements
                 pages[0] = new PageUrl("1", firstPageUrl);
                 for (int i = 2; i <= howManyPages; i++)
                 {
                     pages[i - 1] =
                       new PageUrl(i.ToString(), String.Format(pageUrlFormat, i));
                 }
-                // do not generate a link for the current page
                 pages[currentPage - 1] = new PageUrl((currentPage).ToString(), "");
-                // feed the pages to the repeater
                 pagesRepeater.DataSource = pages;
                 pagesRepeater.DataBind();
             }
@@ -70,13 +59,12 @@ public partial class DisplayingControls_PaginationControl : System.Web.UI.UserCo
     }
 }
 
-// simple struct that represents a (page number, url) association
+
 public struct PageUrl
 {
     private string page;
     private string url;
 
-    // Page and Url property definitions
     public string Page
     {
         get

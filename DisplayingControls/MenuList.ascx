@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="MenuList.ascx.cs" Inherits="DisplayingControls_MenuList" %>
-<asp:DataList ID="list" runat="server" Width="180px">
+<asp:DataList ID="list" runat="server" CssClass="MenuList" Width="180px">
       <HeaderStyle CssClass="MenuListHead" />
       <HeaderTemplate>
         Shop
@@ -16,4 +16,3 @@
         </asp:HyperLink>
       </ItemTemplate>
     </asp:DataList>
-

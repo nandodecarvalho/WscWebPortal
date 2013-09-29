@@ -22,8 +22,7 @@ body
     border: border: 1px solid #496077;
    }
    
-       .Window .header
-    {
+  .Window .header {
         position: relative;
         margin: 0px;
         padding: 0px;
@@ -37,37 +36,72 @@ body
    }
    
    .Window .Main .Left {     
-     width: 220px;
+     width: 180px;
      float: left;
    }
+   
    .Window .Main .Left .Container {
      margin: 0px 0px 0px 0px;
      float: left;
    }
+   
    .Window .Main .Right {
-     width: 740px;
+     width: 780px;
      float: left;
    }
+   
    .Window .Main .Right .Header{
-     margin: 5px 5px 5px 0px;
+     margin: 15px 5px 5px 5px;
      width: 100%;
      text-align: center;
    }
    .Window .Main .Right .Contents{
-     margin: 5px 5px 5px 0px;
+     margin: 0px 5px 5px 5px;
      width: 100%;
      float: left;
    }
    
-   .footer
-   { width:960px; height:40px;
-     background:url(../General_Images/px1.gif) 0 0 repeat-x; position:absolute; left:50%; margin-left:-443px; bottom:0; z-index:10;}
+   .footer 
+   {
+       width:960px; height:40px;
+     background:url(../General_Images/px1.gif) 0 0 repeat-x; position:absolute; left:50%; margin-left:-443px; bottom:0; z-index:10;
+    }
+    
+    
+    .search
+    {
+       float:right;        
+        }
+         
+    .SearchContainer {
+      border-collapse:collapse;
+      margin-top: 20px;
+      width:200px;
+    }
+    .SearchContainerResult {
+      border-collapse:collapse;
+      margin-top: 20px;
+      width:500px;
+    }
+    .SearchContainerHead {
+      background-color: #e1e1e1;
+      text-align: center;
+      color: red;
+      font-size: 14px;
+    }
+    .SearchContainerContent {
+      color: #7da7d9;
+      font-size: 14px;
+      padding: 5px 0px 5px 12px;
+    }
 
 
    .MenuList{
-     border: #01a647 1px solid;
-     text-align: center;
-     margin-top: 20px;
+     text-align: left;
+     margin-right: 20px;
+     background-color: #e1e1e1;
+     
+     
    }
    .MenuListHead
    {
@@ -93,6 +127,7 @@ body
       
       text-align: left;
       margin-top: 20px;
+      background-color: #e1e1e1;
     }
     .MediaListHead {
       background-color: #50C0E9;
@@ -136,22 +171,32 @@ body
       font-size: 12px;
       font-weight: bold;
       margin: 10px 1px 0 0;
+      text-align: center;
     }
     .ProductDetail {
       color: #7da7d9;
       font-size: 12px;
       margin: 10px 1px 0 0;
+      text-align: center;
     }
     .PriceDetail {
       color: red;
       font-size: 12px;
       margin: 10px 1px 0 0;
+       text-align: center;
+    }
+    .PriceDetail2 {
+      color: red;
+      font-size: 12px;
+      margin: 10px 1px 0 0;
+      
     }
 
     .DetailSection {
       color: #7da7d9;
       margin-top: 10px;
       margin-bottom: 10px;
+     
     }
 
     .header h1
@@ -208,8 +253,8 @@ body
 
     div.menu ul li a:active
     {
-        background-color: #465c71;
-        color: #cfdbe6;
+        background-color: #e1e1e1;
+        color: #e1e1e1;
         text-decoration: none;
     }
 
@@ -276,6 +321,7 @@ div.accountInfo
     float: left;
     text-align: left;
     width: auto;
+    padding: 10px;
 }
 
 .loginDisplay

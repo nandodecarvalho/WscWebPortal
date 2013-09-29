@@ -7,21 +7,19 @@ using System.Web;
 
     public class HyperlinkCreator
     {
-      // Builds an absolute URL
-      private static string BuildAbsolute(string relativeUri)
-      {
-        // get current uri
-        Uri uri = HttpContext.Current.Request.Url;
-        // build absolute path
-        string app = HttpContext.Current.Request.ApplicationPath;
-        if (!app.EndsWith("/")) app += "/";
-        relativeUri = relativeUri.TrimStart('/');
-        // return the absolute path
-        return HttpUtility.UrlPathEncode(
-          String.Format("http://{0}:{1}{2}{3}",
-          uri.Host, uri.Port, app, relativeUri));
-      }
 
+        public static string ToSearch(string searchQuery, bool allQueries, string page)
+        {
+            if (page == "1")
+                return BuildAbsolute(
+                  String.Format("/SearchResults.aspx?Search={0}&allQueries={1}",
+                    searchQuery, allQueries.ToString()));
+            else
+                return BuildAbsolute(
+                  String.Format("/SearchResults.aspx?Search={0}&allQueries={1}&Page={2}",
+                    searchQuery, allQueries.ToString(), page));
+        }  
+      
       // Generate a shopMenu URL
       public static string ToShopMenu(string shopMenuId, string page)
       {
@@ -65,5 +63,20 @@ using System.Web;
         {
             // build product URL
             return BuildAbsolute("/Product_Images/" + fileName);
+        }
+
+        // Builds an absolute URL
+        private static string BuildAbsolute(string relativeUri)
+        {
+            // get current uri
+            Uri uri = HttpContext.Current.Request.Url;
+            // build absolute path
+            string app = HttpContext.Current.Request.ApplicationPath;
+            if (!app.EndsWith("/")) app += "/";
+            relativeUri = relativeUri.TrimStart('/');
+            // return the absolute path
+            return HttpUtility.UrlPathEncode(
+              String.Format("http://{0}:{1}{2}{3}",
+              uri.Host, uri.Port, app, relativeUri));
         }
       }

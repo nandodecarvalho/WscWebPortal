@@ -9,16 +9,10 @@ public partial class DisplayingControls_MediaListControl : System.Web.UI.UserCon
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Obtain the ID of the selected Menu
-        string shopmenuId = Request.QueryString["ShopMenuID"];
-        // Continue only if ShopMenuID exists in the query string
-
-        if (shopmenuId != null)
+       string shopmenuId = Request.QueryString["ShopMenuID"];
+       if (shopmenuId != null)
         {
-            // Returns a DataTable
-            // object containing media data, which is displayed by the DataList
             list.DataSource = StoreAccessClass.GetMediaInShopMenu(shopmenuId);
-            // Binds the data bound controls to the data source
             list.DataBind();
         }
     }

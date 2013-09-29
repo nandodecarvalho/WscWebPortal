@@ -4,29 +4,24 @@
 /// This file configures WscWebPortal settings: Email,Database connection, portal name and etc.
 /// It is a collection of static properties that return data from web.config instead of reading them on every reques Yeahh! Performance!
 /// </summary>
-public static class WscWebPortalConfiguration
+public static class WscWebPortalStaticData
 {
-    // Caches the connection string
+    
     private static string dbConnectionString;
-    // Caches the data provider name
     private static string dbProviderName;
-    //Store the number of products per page
     private readonly static int productsPerPage;
-    // Product description length for product lists
     private readonly static int productDescriptionLength;
-    // Name of the Portal
     private readonly static string PortalName;
 
-    static WscWebPortalConfiguration()
-      {
-        dbConnectionString = ConfigurationManager.ConnectionStrings    ["WscWebPortalConnection"].ConnectionString;
+    static WscWebPortalStaticData()
+    {
+        dbConnectionString = ConfigurationManager.ConnectionStrings["WscWebPortalConnection"].ConnectionString;
         dbProviderName = ConfigurationManager.ConnectionStrings["WscWebPortalConnection"].ProviderName;
         productsPerPage = System.Int32.Parse(ConfigurationManager.AppSettings["ProductsPerPage"]);
         productDescriptionLength = System.Int32.Parse(ConfigurationManager.AppSettings
         ["ProductDescriptionLength"]); PortalName = ConfigurationManager.AppSettings["PortalName"];
-      }
+    }
 
-    // Returns the connection string for the WscWebPortal database
     public static string DbConnectionString
     {
         get
@@ -35,7 +30,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the data provider name
     public static string DbProviderName
     {
         get
@@ -45,8 +39,7 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the address of the mail server
-    public static string MailServer
+     public static string MailServer
     {
         get
         {
@@ -54,7 +47,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the email username
     public static string MailUsername
     {
         get
@@ -63,7 +55,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the email password
     public static string MailPassword
     {
         get
@@ -72,8 +63,7 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the email password
-    public static string MailFrom
+     public static string MailFrom
     {
         get
         {
@@ -81,7 +71,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Send error log emails?
     public static bool EnableErrorLogEmail
     {
 
@@ -92,7 +81,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the email address where to send error reports
     public static string ErrorLogEmail
     {
         get
@@ -101,7 +89,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Maximum number of products to be displayed on a page
     public static int ProductsPerPage
     {
         get
@@ -110,7 +97,6 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // The length of product descriptions in products lists
     public static int ProductDescriptionLength
     {
         get
@@ -119,8 +105,7 @@ public static class WscWebPortalConfiguration
         }
     }
 
-    // Returns the Portal name
-    public static string SiteName
+   public static string SiteName
     {
         get
         {
